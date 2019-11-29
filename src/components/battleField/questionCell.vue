@@ -1,5 +1,8 @@
 <template>
-  <figure class="cell" :class="bgComputing">
+  <figure 
+    class="cell" 
+    :class="bgComputing"
+    @click="chooseDecide()">
     <h3>{{ number }}</h3>
   </figure>
 </template>
@@ -27,6 +30,11 @@ export default {
         case 'versus':
           return { 'bg-versus': true }
       }
+    }
+  },
+  methods:{
+    chooseDecide(){
+      this.$store.commit('chooseDecide', {index: this.number - 1})
     }
   }
 }

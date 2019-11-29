@@ -8,7 +8,9 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     userData: [...userData],
-    questionData: [...questionData]
+    questionData: [...questionData],
+    decideChoose: null,
+    questionContent: null
   },
 
   mutations:{
@@ -21,6 +23,13 @@ export const store = new Vuex.Store({
       } else {
         user.score += +payload.amount
       }
+    },
+    chooseDecide(state, payload){
+      const choosenDecide = state.questionData[payload.index];
+      state.decideChoose = choosenDecide
+    },
+    clearDecideChoice(state){
+      state.decideChoose = null;
     }
   },
 })
