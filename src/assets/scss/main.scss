@@ -1,0 +1,10 @@
+// $color-primary: rgb(238, 187, 22);
+$color-solo: #b51bd4;
+$color-mate: #16bfdd;
+$color-versus: #e05616;
+$color-heal: #14da77;
+$color-disabled: #9c9c9c;
+
+@mixin boxShadow($blurRadius, $opacity){
+  box-shadow: -1px 1px 5px $blurRadius rgba(0,0,0,$opacity);;
+}
