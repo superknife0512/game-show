@@ -9,7 +9,9 @@
       <div class="progress">
         <div 
           class="progress-bar progress-bar-striped progress-bar-animated" 
-          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          aria-valuenow="0" 
+          aria-valuemin="0" 
+          aria-valuemax="100" :style="{'width': `${widthBar}%`}"></div>
       </div>
       <div class="btn-group">
         <button 
@@ -31,11 +33,15 @@ import health from 'Image/health.png';
 export default {
   data(){
     return{
-      
+      widthBar: 0,
+      interval: null
     }
   },
-  mouted(){
-
+  mounted(){
+    setTimeout(()=>{
+      this.widthBar = 100
+    },100)
+    this.decreaseTime();
   },
   components:{
     generalPopup
@@ -73,6 +79,15 @@ export default {
   methods: {
     disablePopup(){
       this.$store.commit('clearDecideChoice');
+      clearInterval(this.interval);
+    },
+    decreaseTime(){
+      this.interval = setInterval(() => {
+        this.widthBar = this.widthBar - 10;
+        if(this.widthBar <= 0){
+          clearInterval(interval);
+        }
+      }, 1000);
     }
   }
 }
