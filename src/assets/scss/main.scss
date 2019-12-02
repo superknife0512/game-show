@@ -6,5 +6,5 @@ $color-heal: #14da77;
 $color-disabled: #9c9c9c;
 
 @mixin boxShadow($blurRadius, $opacity){
-  box-shadow: -1px 1px 5px $blurRadius rgba(0,0,0,$opacity);;
+  box-shadow: -1px 1px 5px $blurRadius rgba(0,0,0,$opacity);
 }

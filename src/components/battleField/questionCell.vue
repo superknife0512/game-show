@@ -2,6 +2,7 @@
   <figure 
     class="cell" 
     :class="bgComputing"
+    :style="disableComputing"
     @click="chooseDecide()">
     <h3>{{ number }}</h3>
   </figure>
@@ -9,14 +10,10 @@
 
 <script>
 export default {
-  data(){
-    return{
-      isDone: null
-    }
-  },
   props: {
     number: Number,
-    type: String
+    type: String,
+    isDisable: Boolean
   },
   computed:{
     bgComputing(){
@@ -30,11 +27,20 @@ export default {
         case 'versus':
           return { 'bg-versus': true }
       }
-    }
+    },
+    disableComputing(){
+      if(this.isDisable){
+        return {'background-color': '#9c9c9c', 'transform': 'none', 'box-shadow': 'none'}
+      }
+    },
   },
   methods:{
     chooseDecide(){
-      this.$store.commit('chooseDecide', {index: this.number - 1})
+      this.$store.commit('chooseDecide', {index: this.number - 1});
+      if(this.type === 'heal'){
+        // If this is a heal, disable it right now
+        this.$store.commit('disableQuestion', {index: this.number - 1})
+      }
     }
   }
 }

@@ -4,7 +4,8 @@
       v-for="(q,i) in questionData"
       :key="i"
       :number="i+1" 
-      :type="q.type"/>
+      :type="q.type"
+      :isDisable="q.isDisable"/>
   </div>
 </template>
 
@@ -27,7 +28,8 @@ export default {
     &__board{
       display: grid;
       grid-template-columns: repeat(5,1fr);
-      grid-gap: 2.3rem;
+      grid-column-gap: 2.2rem;
+      grid-row-gap: 1.5rem;
     }
   }
 </style>

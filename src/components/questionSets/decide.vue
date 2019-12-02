@@ -18,7 +18,9 @@
           class="btn btn-danger"
           @click="disablePopup()">Get out</button>
         <button 
-          class="btn btn-primary">Join now!</button>
+          class="btn btn-primary"
+          @click="onJoin()"          
+          :disabled="isDisableBtn">Join now!</button>
       </div>
     </div>
   </general-popup>
@@ -55,6 +57,11 @@ export default {
       }
     },
 
+    isDisableBtn(){
+      const type = this.$store.state.decideChoose.type;
+      return type === 'heal'
+    },
+
     getDecideDetail(){
       if(this.isActivePopup){
         return this.$store.state.decideChoose
@@ -79,15 +86,21 @@ export default {
   methods: {
     disablePopup(){
       this.$store.commit('clearDecideChoice');
+      this.$store.commit('updateTurn');
       clearInterval(this.interval);
     },
     decreaseTime(){
       this.interval = setInterval(() => {
         this.widthBar = this.widthBar - 10;
         if(this.widthBar <= 0){
-          clearInterval(interval);
+          clearInterval(this.interval);
         }
       }, 1000);
+    },
+    onJoin(){
+      this.$store.commit('joinQuestion');
+      this.$store.commit('updateTurn');
+      this.$store.commit('clearDecideChoice');
     }
   }
 }
