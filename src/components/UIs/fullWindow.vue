@@ -19,7 +19,7 @@ export default {
   },
   methods:{
     onClose(){
-      this.$emit('onClose')
+      this.$emit('closeEvent')
     }
   }
 }

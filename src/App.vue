@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vContent></vContent>
+    <vContent v-if="isActiveContent"></vContent>
     <v-turn></v-turn>
     <div class="top container">
       <v-header></v-header> 
@@ -44,6 +44,9 @@ export default {
     },
     questionData() {
       return this.$store.state.questionData;
+    },    
+    isActiveContent(){
+      return this.$store.state.questionContent ? true : false
     }
   },
   watch:{

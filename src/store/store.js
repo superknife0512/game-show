@@ -60,6 +60,16 @@ export const store = new Vuex.Store({
 
     clearQuestionContent(state){
       state.questionContent = null;
+    },
+
+    updateScore(state, payload) { // user name, score, type
+      console.log(payload);
+      const player = state.userData.find(ele => ele.name === payload.name);
+      if(payload.type === 'plus') {
+        player.score += payload.score
+      } else if(payload.type = 'minus') {
+        player.score -= payload.score
+      }
     }
   }
 })
