@@ -34,6 +34,7 @@ export default {
     left: 0;
     z-index: 1200;
     padding: 3.4rem 0;
+    overflow: scroll;
 
     &__close{
       height: 3rem;

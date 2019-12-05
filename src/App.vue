@@ -56,9 +56,9 @@ export default {
   },
   created(){
     this.$store.commit('setGame')
-    setInterval(() => {
-      this.$store.commit('saveGame')
-    }, 4*60000);
+    // setInterval(() => {
+    //   this.$store.commit('saveGame')
+    // }, 4*60000);
   },
   mounted(){
     this.$refs.loseControl.volume = .6;

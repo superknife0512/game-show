@@ -67,7 +67,7 @@
       </div>
       <hr>
       <h3 class="mb-4">Who win?</h3>
-      <div class="btn-group">
+      <div class="btn-group mb-8">
         <button 
           class="btn btn-success"
           @click="onEndGame('win')"
@@ -132,6 +132,7 @@ export default {
         this.changeScore(this.questionContent.score, type, 'lose', this.array2)
       }
       const index = this.questionsList.findIndex(ele => ele.title === this.questionContent.title);
+      console.log(index)
       this.$store.commit('disableQuestion', {index});
       this.clearQuestionContent()
       this.$emit('endGameEvent', type)
@@ -275,8 +276,12 @@ export default {
     }
     &__area{
       position: relative;
-      p{
-        font-size: 1.5rem;
+      div{
+        ul, ol{
+          li{
+            font-size: 1.2rem
+          }
+        }
       }
     }
     &__form{

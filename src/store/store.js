@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import Vue from 'vue';
-// import userData from "../assets/data/user";
+import userData from "../assets/data/user";
 import questionData from "../assets/data/questions";
 
 Vue.use(Vuex);
@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     turns: 0,
-    userData: [],
+    userData: [...userData],
     questionData: [...questionData],
     decideChoose: null,
     questionContent: null,
