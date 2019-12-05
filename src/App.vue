@@ -1,14 +1,19 @@
 <template>
   <div>
-    <vContent v-if="isActiveContent"></vContent>
-    <v-turn></v-turn>
     <div class="top container">
-      <v-header></v-header> 
-      <cards-board></cards-board>
-      <hr>
-      <question-board></question-board>
-      <div>
-        <decide v-if="isActive"></decide>
+      <v-header @changePageEvent="changePage($event)"></v-header> 
+      <div v-if="page === 'battle'">
+        <vContent v-if="isActiveContent"></vContent>
+        <v-turn></v-turn>
+        <cards-board/>
+        <hr>
+        <question-board/>
+        <div>
+          <decide v-if="isActive"></decide>
+        </div>
+      </div>
+      <div v-if="page === 'player'">
+        <add-player/>   
       </div>
     </div>
   </div>
@@ -21,6 +26,7 @@ import questionBoard from './components/battleField/questionBoard'
 import decide from './components/questionSets/decide'
 import vTurn from './components/UIs/turn'
 import vContent from './components/questionSets/content'
+import addPlayer from './components/player/addPlayer'
 // import generalPopup from './components/UIs/generalPopup'
 export default {  
   components: {
@@ -29,8 +35,20 @@ export default {
     questionBoard,
     decide,
     vTurn,
-    vContent
+    vContent,
+    addPlayer
     // generalPopup
+  },
+  created(){
+    this.$store.commit('setGame')
+    setInterval(() => {
+      this.$store.commit('saveGame')
+    }, 4*60000);
+  },
+  data(){
+    return {
+      page: 'battle'
+    }
   },
   computed: {
     isActive(){
@@ -53,15 +71,19 @@ export default {
     turns(newValue, oldValue){
       if(newValue !== oldValue){
         this.disabledQuestions.forEach(disQ=>{
-          if(newValue - disQ.turn > 3){
+          if(newValue - disQ.turn > 3 && disQ.type === 'heal'){
             const index = this.questionData.findIndex(ele => {
               return ele.title === disQ.title
             })
-            console.log(index);
             this.$store.commit('enableDisable', {index})
           }
         })
       }
+    }
+  },
+  methods:{
+    changePage(page){
+      this.page = page;
     }
   }
 }

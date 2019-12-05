@@ -37,6 +37,8 @@ import catImg from 'Image/cat.jpg';
 import dogImg from 'Image/dog.jpg';
 import koalaImg from 'Image/koala.jpg';
 import coatImg from 'Image/coat.jpg';
+import eagleImg from 'Image/eagle.jpg';
+import rabbitImg from 'Image/rabbit.jpg';
 export default {
   data(){
     return {
@@ -78,6 +80,10 @@ export default {
           return koalaImg
         case 'coat':
           return coatImg
+        case 'eagle':
+          return eagleImg
+        case 'rabbit':
+          return rabbitImg
       }
     },
 

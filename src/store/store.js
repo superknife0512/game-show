@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import Vue from 'vue';
-import userData from "../assets/data/user";
+// import userData from "../assets/data/user";
 import questionData from "../assets/data/questions";
 
 Vue.use(Vuex);
@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     turns: 0,
-    userData: [...userData],
+    userData: [],
     questionData: [...questionData],
     decideChoose: null,
     questionContent: null,
@@ -69,6 +69,29 @@ export const store = new Vuex.Store({
         player.score += payload.score
       } else if(payload.type = 'minus') {
         player.score -= payload.score
+      }
+    },
+
+    addUser(state, payload){
+      state.userData.push({
+        ...payload,
+        score: 100,
+      });
+    },
+
+    saveGame(state){
+      localStorage.setItem('questionData', JSON.stringify([...state.questionData]))
+      localStorage.setItem('userData', JSON.stringify([...state.userData]))
+      console.log('Has saved game');
+    },
+
+    setGame(state){
+      const questionData = localStorage.getItem('questionData')
+      const userData = localStorage.getItem('userData')
+      console.log(questionData, userData);
+      if(questionData && userData.length ){
+        state.questionData = JSON.parse(questionData);
+        state.userData = JSON.parse(userData)
       }
     }
   }
