@@ -38,8 +38,9 @@ import swords from 'Image/swords.png';
 import shield from 'Image/shield.png';
 import health from 'Image/health.png';
 
-import mateThinkAudio from 'Audio/mate-thinking.mp3'
+import versusThinkAudio from 'Audio/versus-thinking.mp3'
 import soloThinkAudio from 'Audio/solo-thinking.mp3'
+import mateThinkAudio from 'Audio/mate-thinking.mp3'
 import healingAudio from 'Audio/healing.mp3'
 export default {
   data(){
@@ -53,7 +54,7 @@ export default {
       this.widthBar = 100
     },100)
     this.decreaseTime();
-    this.$refs.audioControl.volume = .25
+    this.$refs.audioControl.volume = .3
   },
   components:{
     generalPopup, 
@@ -65,7 +66,9 @@ export default {
         return soloThinkAudio
       } else if(this.getDecideDetail.type === 'heal') {
         return healingAudio
-      } else {
+      } else if (this.getDecideDetail.type === 'versus' ) {
+        return versusThinkAudio
+      } else if(this.getDecideDetail.type === 'mate') {
         return mateThinkAudio
       }
     },

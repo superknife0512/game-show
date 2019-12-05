@@ -121,8 +121,7 @@ export default {
     draggable,
     flyUp
   },
-  methods:{
-    
+  methods:{    
     onEndGame(type){
       if(this.questionContent.type === 'mate'){
         this.changeScore(this.questionContent.score, type);

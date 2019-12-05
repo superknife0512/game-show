@@ -35,11 +35,12 @@ import decide from './components/questionSets/decide'
 import vTurn from './components/UIs/turn'
 import vContent from './components/questionSets/content'
 import addPlayer from './components/player/addPlayer'
+
 import flyUp from './components/animation/flyUp'
 import flyIn from './components/animation/flyIn'
+
 import OhAudio from './assets/audio/Oh.mp3'
 import YayAudio from './assets/audio/Yay.mp3'
-// import generalPopup from './components/UIs/generalPopup'
 export default {  
   components: {
     vHeader: vHeader,
@@ -60,8 +61,8 @@ export default {
     }, 4*60000);
   },
   mounted(){
-    this.$refs.loseControl.volume = .5;
-    this.$refs.loseControl.volume = .4;
+    this.$refs.loseControl.volume = .6;
+    this.$refs.winControl.volume = .6;
   },
   data(){
     return {

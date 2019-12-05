@@ -31,6 +31,8 @@ export default {
         name: this.name,
         img: this.avatar
       })
+      this.name = '';
+      this.avatar = '';
     }
   }
 }
