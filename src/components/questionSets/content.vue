@@ -38,7 +38,7 @@
           </draggable>
           <input 
             type="number" class="form-control content__form" 
-            max="30" v-model="betScore" 
+            max="30" v-model.number="betScore" 
             placeholder="Bet score here (max 30)"
             v-if="questionContent.type === 'solo'">
         </div>
@@ -61,7 +61,9 @@
       <hr>
       <div class="content__area">
         <p>{{ questionContent.content }}</p>
-        <div class="content__block" v-if="!isStart"></div>
+        <fly-up>
+          <div class="content__block" v-if="!isStart"></div>
+        </fly-up>
       </div>
       <hr>
       <h3 class="mb-4">Who win?</h3>
@@ -76,15 +78,30 @@
           :disabled="array1.length + array2.length < 1">You lose</button>
       </div>
     </div>
+    <audio class="none-display" ref="audioControl" loop>
+      <source :src="thinkingComputing" type="audio/mpeg" >
+    </audio>
+    <audio class="none-display" autoplay ref="openControl">
+      <source :src="openAudio" type="audio/mpeg" >
+    </audio>
   </full-window>
 </template>
 <script>
 import fullWindow from '../UIs/fullWindow'
 import draggable from 'vuedraggable';
+import flyUp from '../animation/flyUp'
+
+import Intense1 from 'Audio/intense-1.mp3';
+import Intense2 from 'Audio/intense-2.mp3';
+import Intense3 from 'Audio/intense-3.mp3';
+import openAudio from 'Audio/open-question.mp3'
 export default {
   created(){
     this.originalArr = this.$store.state.userData;
     this.questionContent = this.$store.state.questionContent;
+  },
+  mounted(){
+    this.$refs.openControl.volume = .4
   },
   data(){
     return {
@@ -95,12 +112,14 @@ export default {
       interval: null,
       remainingTime: null,
       isStart: false,
-      betScore: ''
+      betScore: '',
+      openAudio
     }
   },
   components:{
     fullWindow,
-    draggable
+    draggable,
+    flyUp
   },
   methods:{
     
@@ -116,6 +135,7 @@ export default {
       const index = this.questionsList.findIndex(ele => ele.title === this.questionContent.title);
       this.$store.commit('disableQuestion', {index});
       this.clearQuestionContent()
+      this.$emit('endGameEvent', type)
     },
 
     changeScore(scoreSource, type, firstCondition = 'win', array = this.array1){
@@ -149,10 +169,13 @@ export default {
     onStart(){
       this.remainingTimeCalculating();
       this.isStart = true;
+      this.$refs.audioControl.play();
     },
     onStop(){
       clearInterval(this.interval);
       this.isStart = false
+      this.$refs.audioControl.pause();
+
     }
   },
   computed: {
@@ -164,6 +187,15 @@ export default {
     },
     questionsList(){
       return this.$store.state.questionData
+    },
+    thinkingComputing(){
+      if(this.questionContent.type === 'solo') {
+        return Intense1;
+      } else if (this.questionContent.type === 'mate') {
+        return Intense3
+      } else if (this.questionContent.type === 'versus'){
+        return Intense2
+      }
     }
   }
 }

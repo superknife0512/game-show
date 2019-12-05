@@ -30,7 +30,7 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.(jpe?g|png|gif)/,
+          test: /\.(jpe?g|png|gif|mp3)/,
           use: {
             loader: 'file-loader',
             options: {
@@ -46,7 +46,8 @@ module.exports = env => {
       extensions: ['*', '.vue', '.js', '.json'],
       alias: {
         globalStyle: path.resolve(__dirname, 'src/assets/scss/main.scss'),
-        Image: path.resolve(__dirname, 'src/assets/images')
+        Image: path.resolve(__dirname, 'src/assets/images'),
+        Audio: path.resolve(__dirname, 'src/assets/audio'),
       }
     },
 

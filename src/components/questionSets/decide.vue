@@ -5,7 +5,7 @@
         <img :src="iconComputing" alt="icon">
       </div>
       <h4 class="decide__title"> {{getDecideDetail.title}} </h4>
-      <h5 class="decide__category"> {{ getDecideDetail.category }} </h5>
+      <h5 class="decide__category"> {{ getDecideDetail.category }} - {{ getDecideDetail.score}} </h5>
       <div class="progress">
         <div 
           class="progress-bar progress-bar-striped progress-bar-animated" 
@@ -22,16 +22,25 @@
           @click="onJoin()"          
           :disabled="isDisableBtn">Join now!</button>
       </div>
+      <audio class="none-display" autoplay ref="audioControl">
+        <source :src="thinkingComputing" type="audio/mpeg" >
+      </audio>
     </div>
   </general-popup>
 </template>
 
 <script>
 import generalPopup from '../UIs/generalPopup';
+import flyIn from '../animation/flyIn'
+
 import sword from 'Image/sword.png';
 import swords from 'Image/swords.png';
 import shield from 'Image/shield.png';
 import health from 'Image/health.png';
+
+import mateThinkAudio from 'Audio/mate-thinking.mp3'
+import soloThinkAudio from 'Audio/solo-thinking.mp3'
+import healingAudio from 'Audio/healing.mp3'
 export default {
   data(){
     return{
@@ -44,11 +53,23 @@ export default {
       this.widthBar = 100
     },100)
     this.decreaseTime();
+    this.$refs.audioControl.volume = .25
   },
   components:{
-    generalPopup
+    generalPopup, 
+    flyIn
   },
   computed:{
+    thinkingComputing(){
+      if(this.getDecideDetail.type === 'solo') {
+        return soloThinkAudio
+      } else if(this.getDecideDetail.type === 'heal') {
+        return healingAudio
+      } else {
+        return mateThinkAudio
+      }
+    },
+
     isActivePopup(){
       if (this.$store.state.decideChoose) {
         return true;
@@ -156,5 +177,9 @@ export default {
       border-top: 1px solid rgba($color: #000000, $alpha: .2)
     }
     
+  }
+
+  .none-display {
+    opacity: 0;
   }
 </style>

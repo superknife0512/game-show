@@ -3,18 +3,26 @@
     <div class="top container">
       <v-header @changePageEvent="changePage($event)"></v-header> 
       <div v-if="page === 'battle'">
-        <vContent v-if="isActiveContent"></vContent>
+        <fly-up>
+          <vContent v-if="isActiveContent" @endGameEvent="invokeAudio($event)"></vContent>
+        </fly-up>
         <v-turn></v-turn>
         <cards-board/>
         <hr>
         <question-board/>
-        <div>
+        <fly-in>
           <decide v-if="isActive"></decide>
-        </div>
+        </fly-in>
       </div>
       <div v-if="page === 'player'">
         <add-player/>   
       </div>
+      <audio class="none-display" ref="loseControl">
+        <source :src="loseAudio" type="audio/mpeg" >
+      </audio>
+      <audio class="none-display" ref="winControl">
+        <source :src="winAudio" type="audio/mpeg" >
+      </audio>
     </div>
   </div>
 </template>
@@ -27,6 +35,10 @@ import decide from './components/questionSets/decide'
 import vTurn from './components/UIs/turn'
 import vContent from './components/questionSets/content'
 import addPlayer from './components/player/addPlayer'
+import flyUp from './components/animation/flyUp'
+import flyIn from './components/animation/flyIn'
+import OhAudio from './assets/audio/Oh.mp3'
+import YayAudio from './assets/audio/Yay.mp3'
 // import generalPopup from './components/UIs/generalPopup'
 export default {  
   components: {
@@ -36,7 +48,9 @@ export default {
     decide,
     vTurn,
     vContent,
-    addPlayer
+    addPlayer,
+    flyUp,
+    flyIn
     // generalPopup
   },
   created(){
@@ -45,14 +59,23 @@ export default {
       this.$store.commit('saveGame')
     }, 4*60000);
   },
+  mounted(){
+    this.$refs.loseControl.volume = .5;
+    this.$refs.loseControl.volume = .4;
+  },
   data(){
     return {
-      page: 'battle'
+      page: 'battle',
+      winAudio: YayAudio,
+      loseAudio: OhAudio
     }
   },
   computed: {
     isActive(){
       return this.$store.state.decideChoose ? true : false;
+    },
+    isActiveContent(){
+      return this.$store.state.questionContent ? true : false
     },
     turns(){
       return this.$store.state.turns;
@@ -63,9 +86,6 @@ export default {
     questionData() {
       return this.$store.state.questionData;
     },    
-    isActiveContent(){
-      return this.$store.state.questionContent ? true : false
-    }
   },
   watch:{
     turns(newValue, oldValue){
@@ -84,6 +104,14 @@ export default {
   methods:{
     changePage(page){
       this.page = page;
+    },    
+    invokeAudio(type){
+      console.log(type);
+      if(type === 'lose'){
+        this.$refs.loseControl.play();
+      } else if(type === 'win') {
+        this.$refs.winControl.play()
+      }
     }
   }
 }

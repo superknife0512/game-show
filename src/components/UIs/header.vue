@@ -3,7 +3,7 @@
     <button class="btn btn-primary mr-2" 
       @click="onChangePage('battle')"> Battle Field </button>
     <button class="btn btn-warning mr-4"
-      @click="onChangePage('player')"> Add People </button>
+      @click="onChangePage('player')"> Add Player </button>
     <button class="btn btn-danger"
       @click="resetGame()"> Reset game </button>
   </nav>  

@@ -7,9 +7,13 @@
 </template>
 
 <script>
+import flyIn from '../animation/flyIn'
 export default {
   props:{
     isActive: Boolean
+  },
+  components:{ 
+    flyIn
   }
 } 
 </script>
