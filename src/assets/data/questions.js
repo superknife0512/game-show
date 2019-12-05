@@ -1,48 +1,59 @@
 export default [
   {
     type: 'mate',
-    title: "Mate: how old are you",
-    time: 70,
-    category: 'Văn hóa lịch sử',
-    content: 'Some things should be here',
+    title: "Mate: Hiểu ý đồng đội",
+    time: 120,
+    category: 'Đời sống',
+    content: 'Hãy kể ra 3 món ăn mà đồng đội bạn thích nhất',
     isDisable: false,
-    score: 10
-  },
-  {
-    type: 'solo',
-    title: 'Thử thách đoán hình',
-    time: 30,
-    category: 'Technology',
-    isDisable: false,
-    content: 'Some things should be here',
-    score: 'bet'
+    score: 10,
+    answer: ''
   },
   {
     type: 'versus',
-    title: 'Ask and answer 3',
-    time: 60,
-    category: 'Văn hóa lịch sử',
+    title: "Versus: Dòng chảy sự kiện",
+    time: 120,
+    category: 'Lịch sử',
+    content: `
+      Sắp xếp các sự kiện lịch sử sau theo thứ tự: <br/>
+      1. Trần Cảnh lên ngôi vua lúc 8 tuổi <br/>
+      2. Thái thượng Hoàng Trần Thừa nhiếp chính <br/>
+      3. Vua Lý Huệ Tông nhường ngôi cho công chúa Chiêu Thánh <br/>
+      4. Quân Mông Cổ xâm lượt lần thứ nhất 
+    `,
     isDisable: false,
-    content: 'Some things should be here',
-    score: 15
+    score: 15,
+    answer: ''
+  },
+  {
+    type: 'mate',
+    title: "Mate: Hiểu ý đồng đội",
+    time: 120,
+    category: 'Đời sống',
+    content: 'Hãy kể ra 3 món ăn mà đồng đội bạn thích nhất',
+    isDisable: false,
+    score: 10,
+    answer: ''
   },
   {
     type: 'heal',
-    title: 'Let\'s heal your health',
-    time: 0,
-    category: 'Hồi phục',
+    title: "Up your heal",
+    time: 120,
+    category: 'Health',
+    // content: 'Hãy kể ra 3 món ăn mà đồng đội bạn thích nhất
     isDisable: false,
-    content: 'Some things should be here',
-    score: 'none'
+    score: 'none',
+    answer: ''
   },
   {
-    type: 'versus',
-    title: 'Ask and answer 4',
+    type: 'mate',
+    title: "Mate: Hiểu ý đồng đội",
     time: 120,
-    category: 'Văn hóa lịch sử',
+    category: 'Đời sống',
+    content: 'Hãy kể ra 3 món ăn mà đồng đội bạn thích nhất',
     isDisable: false,
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur, tellus id semper hendrerit, metus massa tempor ex, id condimentum risus mi ut sem. Donec interdum at lacus sollicitudin bibendum. Pellentesque ornare nisl a hendrerit condimentum. Donec tincidunt pulvinar maximus. Aliquam posuere, eros non mattis volutpat, metus tortor euismod eros,',
-    score: 15
+    score: 10,
+    answer: ''
   },
-  
+
 ]

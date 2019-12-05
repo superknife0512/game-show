@@ -60,7 +60,7 @@
       </div>
       <hr>
       <div class="content__area">
-        <p>{{ questionContent.content }}</p>
+        <div v-html="questionContent.content"></div>
         <fly-up>
           <div class="content__block" v-if="!isStart"></div>
         </fly-up>
