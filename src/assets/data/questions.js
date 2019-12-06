@@ -29,7 +29,7 @@ export default [
       </ol>
     `,
     isDisable: false,
-    score: 20,
+    score: 15,
     answer: '3 2 1 4'
   },
   {
@@ -76,7 +76,7 @@ export default [
     <p>Thử thách thành công khi người còn lại đoán được 2/3 hình vẽ</p>
     `,
     isDisable: false,
-    score: 20,
+    score: 15,
     answer: 'none'
   },
   // ********** ROW 2 ***********
@@ -188,7 +188,7 @@ export default [
     <p>Đồng đội bạn có 2/3 bức tranh giống bạn thì chiến thắng</p>
     `,
     isDisable: false,
-    score: 25,
+    score: 20,
     answer: 'none'
   },
   {
@@ -262,7 +262,7 @@ export default [
     </ol>
     `,
     isDisable: false,
-    score: 25,
+    score: 20,
     answer: '1 3 4 6'
   },  
   {
@@ -331,7 +331,7 @@ export default [
     </small> 
     `,
     isDisable: false,
-    score: 25,
+    score: 20,
     answer: '1 3 4 6'
   }, 
   
@@ -386,7 +386,7 @@ export default [
     <p>Có 2 cơ hội cho thử thách này</p>
     `,
     isDisable: false,
-    score: 25,
+    score: 20,
     answer: '19m'
   },
 ]

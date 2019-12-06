@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     turns: 0,
-    userData: [...userData],
+    userData: [],
     questionData: [...questionData],
     decideChoose: null,
     questionContent: null,
