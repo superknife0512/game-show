@@ -49,8 +49,9 @@ export const store = new Vuex.Store({
     enableDisable(state,payload){
       const question = state.questionData[payload.index];
       question.isDisable = false;
+      console.log(question);
       state.disabledQuestions = state.disabledQuestions.filter(ele=>{
-        ele.title !== question.title
+        return ele.title !== question.title
       })
     },
 

@@ -56,9 +56,9 @@ export default {
   },
   created(){
     this.$store.commit('setGame')
-    // setInterval(() => {
-    //   this.$store.commit('saveGame')
-    // }, 4*60000);
+    setInterval(() => {
+      this.$store.commit('saveGame')
+    }, 5*60000);
   },
   mounted(){
     this.$refs.loseControl.volume = .6;
@@ -96,6 +96,7 @@ export default {
             const index = this.questionData.findIndex(ele => {
               return ele.title === disQ.title
             })
+            console.log(index);
             this.$store.commit('enableDisable', {index})
           }
         })

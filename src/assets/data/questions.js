@@ -334,24 +334,7 @@ export default [
     score: 25,
     answer: '1 3 4 6'
   }, 
-  {
-    type: 'versus',
-    title: "versus: Chạy thi",
-    time:  180,
-    category: 'Vật lý',
-    content: `
-    <h4>
-        Ba anh em thi chạy 100 met. nếu anh cả và anh hai thi chạy 100 mét thì 
-        anh cả về đích trước 10m. Nếu anh hai và anh ba thi chạy 100m thì anh hai về trước 10 m
-        và giành chiến thắng. Vậy nếu 3 anh em cùng thi chạy 100m thì anh cả về trước anh
-        ba bao nhiêu m ???
-    </h4>
-    <p>Có 2 cơ hội cho thử thách này</p>
-    `,
-    isDisable: false,
-    score: 'bet',
-    answer: '19m'
-  },
+  
   {
     type: 'heal',
     title: "Healing point - 3",
@@ -387,5 +370,23 @@ export default [
     isDisable: false,
     score: 'bet',
     answer: 'none'
+  },
+  {
+    type: 'versus',
+    title: "versus: Chạy thi",
+    time:  180,
+    category: 'Vật lý',
+    content: `
+    <h4>
+        Ba anh em thi chạy 100 met. nếu anh cả và anh hai thi chạy 100 mét thì 
+        anh cả về đích trước 10m. Nếu anh hai và anh ba thi chạy 100m thì anh hai về trước 10 m
+        và giành chiến thắng. Vậy nếu 3 anh em cùng thi chạy 100m thì anh cả về trước anh
+        ba bao nhiêu m ???
+    </h4>
+    <p>Có 2 cơ hội cho thử thách này</p>
+    `,
+    isDisable: false,
+    score: 25,
+    answer: '19m'
   },
 ]
