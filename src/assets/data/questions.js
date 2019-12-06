@@ -335,10 +335,10 @@ export default [
     answer: '1 3 4 6'
   }, 
   {
-    type: 'solo',
-    title: "Solo: Chạy thi",
+    type: 'versus',
+    title: "versus: Chạy thi",
     time:  180,
-    category: 'Toán học',
+    category: 'Vật lý',
     content: `
     <h4>
         Ba anh em thi chạy 100 met. nếu anh cả và anh hai thi chạy 100 mét thì 
