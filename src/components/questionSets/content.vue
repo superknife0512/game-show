@@ -79,10 +79,13 @@
       </div>
     </div>
     <audio class="none-display" ref="audioControl" loop>
-      <source :src="thinkingComputing" type="audio/mpeg" >
+      <source :src="audioComputing" type="audio/mpeg" >
     </audio>
     <audio class="none-display" autoplay ref="openControl">
       <source :src="openAudio" type="audio/mpeg" >
+    </audio>
+    <audio class="none-display" ref="endControl">
+      <source :src="endAudio" type="audio/mpeg" >
     </audio>
   </full-window>
 </template>
@@ -95,6 +98,7 @@ import Intense1 from 'Audio/intense-1.mp3';
 import Intense2 from 'Audio/intense-2.mp3';
 import Intense3 from 'Audio/intense-3.mp3';
 import openAudio from 'Audio/open-question.mp3'
+import endAudio from 'Audio/end.mp3'
 export default {
   created(){
     this.originalArr = this.$store.state.userData;
@@ -113,7 +117,8 @@ export default {
       remainingTime: null,
       isStart: false,
       betScore: '',
-      openAudio
+      openAudio,
+      endAudio
     }
   },
   components:{
@@ -175,7 +180,6 @@ export default {
       clearInterval(this.interval);
       this.isStart = false
       this.$refs.audioControl.pause();
-
     }
   },
   computed: {
@@ -188,13 +192,21 @@ export default {
     questionsList(){
       return this.$store.state.questionData
     },
-    thinkingComputing(){
+    audioComputing(){
       if(this.questionContent.type === 'solo') {
         return Intense1;
       } else if (this.questionContent.type === 'mate') {
         return Intense3
       } else if (this.questionContent.type === 'versus'){
         return Intense2
+      }
+    }
+  },
+  watch: {
+    remainingTime(value){
+      if(value < 1 && typeof value === 'number'){
+        this.$refs.endControl.play()
+        this.onStop();
       }
     }
   }

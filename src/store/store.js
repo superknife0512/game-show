@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     turns: 0,
-    userData: [],
+    userData: [...userData],
     questionData: [...questionData],
     decideChoose: null,
     questionContent: null,
@@ -76,7 +76,7 @@ export const store = new Vuex.Store({
     addUser(state, payload){
       state.userData.push({
         ...payload,
-        score: 100,
+        score: 51,
       });
     },
 

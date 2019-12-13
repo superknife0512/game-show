@@ -2,21 +2,21 @@ export default [
   {
     "img": "cat",
     "name": "Elino Cat",
-    "score": 100
+    "score": 51
   },
   {
     "img": "dog",
     "name": "Born Dog",
-    "score": 100
+    "score": 51
   },
   {
     "img": "koala",
     "name": "Bruce Koala",
-    "score": 100
+    "score": 51
   },
   {
     "img": "coat",
     "name": "Boden Lena",
-    "score": 100
+    "score": 51
   },
 ]
