@@ -73,10 +73,10 @@ export default [
     <h4>
         Đồng đội thực hiện vẽ lại 3 vật do người dẫn chương trình đưa ra
     </h4>
-    <p>Thử thách thành công khi người còn lại đoán được 2/3 hình vẽ</p>
+    <p>Thử thách thành công khi người còn lại đoán được 3/3 hình vẽ</p>
     `,
     isDisable: false,
-    score: 15,
+    score: 20,
     answer: 'none'
   },
   // ********** ROW 2 ***********
@@ -123,7 +123,7 @@ export default [
     time: 120,
     category: 'Toán học',
     content: `
-      <h4> Phép tính dưới đây do 9 chữ số tạo thành nhưng mỗi chữ số chỉ xuất hiện 1 lần, hãy điền vào ô vuông còn trống để hoàn thiện nó </h4>
+      <h4> Phép tính dưới đây do 9 chữ số tạo thành nhưng mỗi chữ số chỉ xuất hiện 1 lần, hãy điền vào vị trí còn trống để hoàn thiện nó </h4>
       <h2>_27 - 3_6 = 58_</h2>
     `,
     isDisable: false,
@@ -132,7 +132,7 @@ export default [
   },
   {
     type: 'solo',
-    title: "Solo: Đôi tai vàng",
+    title: "Solo: Nốt nhạc vàng",
     time: 120,
     category: 'Âm nhạc',
     content: `
@@ -185,7 +185,7 @@ export default [
         Có 6 bức tranh, hãy quan sát và chọn ra 3 bức mà bạn ấn tượng nhất!
     </h4>
     <a target=blank href="https://photos.app.goo.gl/jEiFPn8jpnscCuxa8">Link Tranh</a>
-    <p>Đồng đội bạn có 2/3 bức tranh giống bạn thì chiến thắng</p>
+    <p>Đồng đội bạn có 3/3 bức tranh giống bạn thì chiến thắng</p>
     `,
     isDisable: false,
     score: 20,
@@ -219,9 +219,9 @@ export default [
     category: 'Ẩm thực',
     content: `
     <h4>
-        Hãy kể ra 3 món mà đồng đội của bạn có thể nấu
+        Hãy kể ra 4 món mà đồng đội của bạn có thể nấu
     </h4>
-    <p>Nếu trùng 2/3 món thì chiến thắng</p>    
+    <p>Nếu trùng 3/4 món thì chiến thắng</p>    
     `,
     isDisable: false,
     score: 15,
@@ -287,7 +287,7 @@ export default [
     <h4>
         Hãy kể về 3 tác phẩm văn học bạn yêu thích (không được nhắc tên) cho đồng đội đoán
     </h4>
-    <p>Nếu đoán được 2/3 tác phẩm thì chiến thắng</p>    
+    <p>Nếu đoán được 3/3 tác phẩm thì chiến thắng</p>    
     `,
     isDisable: false,
     score: 15,
@@ -305,7 +305,7 @@ export default [
   
   {
     type: 'versus',
-    title: "Versus: Chuyên gia thi ca",
+    title: "Versus: Thơ thẩn",
     time: 130,
     category: 'Văn học',
     content: `
@@ -345,7 +345,7 @@ export default [
   }, 
   {
     type: 'mate',
-    title: "Mate: thẩm định ứng dụng",
+    title: "Mate: Vua app",
     time: 120,
     category: 'Công nghệ',
     content: `

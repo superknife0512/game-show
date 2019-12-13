@@ -4,7 +4,7 @@
     @closeEvent="clearQuestionContent()">
     <div class="content">
       <div class="content__group">
-        <h2 class="content__title">{{ questionContent.title }}</h2>
+        <h2 class="content__title">{{ questionContent.title }}-({{ questionContent.score }})</h2>
         <div class="progress">
           <div 
             class="progress-bar progress-bar-striped progress-bar-animated" 
@@ -137,7 +137,6 @@ export default {
         this.changeScore(this.questionContent.score, type, 'lose', this.array2)
       }
       const index = this.questionsList.findIndex(ele => ele.title === this.questionContent.title);
-      console.log(index)
       this.$store.commit('disableQuestion', {index});
       this.clearQuestionContent()
       this.$emit('endGameEvent', type)
@@ -153,6 +152,7 @@ export default {
         }
         this.$store.commit('updateScore', {
           name: player.name,
+          img: player.img,
           score: scoreSource,
           type: payloadType
         })

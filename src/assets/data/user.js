@@ -15,8 +15,8 @@ export default [
     "score": 51
   },
   {
-    "img": "coat",
+    "img": "eagle",
     "name": "Boden Lena",
-    "score": 51
+    "score": 71
   },
 ]

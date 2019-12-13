@@ -67,16 +67,26 @@ export const store = new Vuex.Store({
       console.log(payload);
       const player = state.userData.find(ele => ele.name === payload.name);
       if(payload.type === 'plus') {
-        player.score += payload.score
+        if(payload.img === 'cat' || payload.img === 'dog'){
+          const score = payload.score + Math.floor(payload.score * 0.2);
+          player.score += score
+        } else {
+          player.score += payload.score          
+        }
       } else if(payload.type = 'minus') {
-        player.score -= payload.score
+        if(payload.img === 'coat' || payload.img === 'koala'){
+          const score = payload.score - Math.floor(payload.score * 0.2);
+          player.score -= score
+        } else {
+          player.score -= payload.score          
+        }
       }
     },
 
     addUser(state, payload){
       state.userData.push({
         ...payload,
-        score: 51,
+        score: payload.img === 'eagle' || payload.img === 'rabbit' ? 75 : 51,
       });
     },
 
