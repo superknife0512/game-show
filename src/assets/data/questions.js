@@ -1,7 +1,7 @@
 export default [
   {
     type: 'mate',
-    title: "Mate: Hiểu ý đồng đội 1",
+    title: "Mate: Ăn uống cùng đồng đội",
     time: 120,
     category: 'Đời sống',
     content: `
@@ -106,7 +106,7 @@ export default [
   },
   {
     type: 'mate',
-    title: "Mate: Hiểu ý đồng đội 2",
+    title: "Mate: Học văn cùng đồng đội",
     time: 120,
     category: 'Văn học',
     content: `
@@ -177,7 +177,7 @@ export default [
   },
   {
     type: 'mate',
-    title: "Mate: Tâm ý tương thông",
+    title: "Mate: Học vẽ cùng đồng đội",
     time: 130,
     category: 'Nghệ thuật',
     content: `
@@ -214,7 +214,7 @@ export default [
   },
   {
     type: 'mate',
-    title: "Mate: Tay nghề",
+    title: "Mate: Vào bếp cùng đồng đội",
     time: 120,
     category: 'Ẩm thực',
     content: `
@@ -267,7 +267,7 @@ export default [
   },  
   {
     type: 'mate',
-    title: "Mate: Đoán ý đồng đội",
+    title: "Mate: Học nhạc cùng đồng đội",
     time: 135,
     category: 'Âm nhạc',
     content: `
