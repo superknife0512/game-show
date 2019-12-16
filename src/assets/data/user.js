@@ -2,7 +2,7 @@ export default [
   {
     "img": "cat",
     "name": "Elino Cat",
-    "score": 51
+    "score": 51 
   },
   {
     "img": "dog",
@@ -17,6 +17,6 @@ export default [
   {
     "img": "eagle",
     "name": "Boden Lena",
-    "score": 71
+    "score": 75
   },
 ]

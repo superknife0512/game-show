@@ -61,8 +61,8 @@ export default {
     }, 5*60000);
   },
   mounted(){
-    this.$refs.loseControl.volume = .6;
-    this.$refs.winControl.volume = .6;
+    this.$refs.loseControl.volume = .5;
+    this.$refs.winControl.volume = .35;
   },
   data(){
     return {

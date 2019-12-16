@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state:{
     turns: 0,
-    userData: [...userData],
+    userData: [],
     questionData: [...questionData],
     decideChoose: null,
     questionContent: null,
@@ -64,7 +64,6 @@ export const store = new Vuex.Store({
     },
 
     updateScore(state, payload) { // user name, score, type
-      console.log(payload);
       const player = state.userData.find(ele => ele.name === payload.name);
       if(payload.type === 'plus') {
         if(payload.img === 'cat' || payload.img === 'dog'){
